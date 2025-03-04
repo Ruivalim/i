@@ -4,9 +4,7 @@ echo "Updating the system..."
 sudo pacman -Syu --noconfirm
 
 echo "Installing apps..."
-sudo pacman -S --noconfirm i3-wm i3status i3lock git neovim zsh kitty base-devel picom rofi ly kubectl chezmoi i3 xorg-xinit 
-
-cp /etc/X11/xinit/xinitrc ~/.xinitrc
+sudo pacman -S --noconfirm i3-wm i3status i3lock git neovim zsh kitty base-devel picom rofi ly kubectl chezmoi i3 xorg-server xorg-xinit xorg-xrandr xorg-xsetroot fzf xterm dunst
 
 echo "Setting zsh as the default shell..."
 if [[ "$SHELL" != "$(which zsh)" ]]; then
@@ -19,7 +17,7 @@ fi
 echo "Checking for Oh My Zsh installation..."
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
     echo "Installing Oh My Zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 else
     echo "Oh My Zsh is already installed."
 fi
@@ -50,5 +48,14 @@ if ! grep -q "font_family DroidSansMono Nerd Font" ~/.config/kitty/kitty.conf 2>
 else
     echo "kitty is already configured to use Nerdfonts."
 fi
+
+zsh 
+
+cp /etc/X11/xinit/xinitrc ~/.xinitrc
+
+chezmoi init --apply Ruivalim
+chezmoi update
+
+sudo systemctl enable ly
 
 echo "Installation complete! Please restart your terminal or log out and back in to apply changes."
