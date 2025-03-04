@@ -49,8 +49,6 @@ else
     echo "kitty is already configured to use Nerdfonts."
 fi
 
-zsh 
-
 cp /etc/X11/xinit/xinitrc ~/.xinitrc
 
 chezmoi init --apply Ruivalim
