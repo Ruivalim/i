@@ -4,14 +4,7 @@ echo "Updating the system..."
 sudo pacman -Syu --noconfirm
 
 echo "Installing apps..."
-sudo pacman -S --noconfirm i3 git neovim zsh kitty yay picom rofi ly 
-
-echo "Installing kubectl, kubectx, and kubens..."
-sudo pacman -S --noconfirm kubectl
-yay -S --noconfirm kubectx
-
-echo "Installing chezmoi..."
-sudo pacman -S --noconfirm chezmoi
+sudo pacman -S --noconfirm i3 git neovim zsh kitty base-devel picom rofi ly kubectl chezmoi
 
 echo "Setting zsh as the default shell..."
 chsh -s $(which zsh)
