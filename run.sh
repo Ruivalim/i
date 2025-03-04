@@ -4,7 +4,7 @@ echo "Updating the system..."
 sudo pacman -Syu --noconfirm
 
 echo "Installing apps..."
-sudo pacman -S --noconfirm i3-wm i3status i3lock i3-gaps dmenu termite git neovim zsh kitty base-devel picom rofi ly kubectl chezmoi i3 xorg-server xorg-xinit xorg-xrandr xorg-xsetroot fzf xterm dunst
+sudo pacman -S --noconfirm i3-wm i3status i3lock i3-gaps dmenu git neovim zsh kitty base-devel picom rofi ly kubectl chezmoi i3 xorg-server xorg-xinit xorg-xrandr xorg-xsetroot fzf xterm dunst
 
 echo "Setting zsh as the default shell..."
 if [[ "$SHELL" != "$(which zsh)" ]]; then
